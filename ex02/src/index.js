@@ -5,13 +5,12 @@ const MY_CAR = {
 };
 
 function main(myCar) {
+    //
 
-    const { cylinders } = myCar;
-    const { size } = myCar; 
-    return {
-        cylinders,
-        size
-    };
+    const { cylinders, size } = myCar;
+    return { cylinders, size };
+
+    //
 }
 
 console.log(main(MY_CAR));

@@ -1,4 +1,3 @@
-  
 const MY_CAR = {
     wheels: 4,
     cylinders: 4,
@@ -6,14 +5,12 @@ const MY_CAR = {
 };
 
 function main(myCar) {
+    //
 
-    const { cylinders: carCylinders } = myCar;
-    const { size: carSize } = myCar; 
-    
-    return {
-        carCylinders,
-        carSize
-    };
+    const { cylinders: carCylinders, size: carSize } = myCar;
+
+    return { carCylinders, carSize };
+    //
 }
 
 console.log(main(MY_CAR));

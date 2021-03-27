@@ -1,7 +1,6 @@
 const _ = require('lodash');
 
-
-const users = [
+var users = [
     {
         firstName: "John",
         lastName: "Doe",
@@ -30,32 +29,25 @@ const users = [
 
 function getUsers() {
     var output = "";
-    for (var i = 0; i < users.length; i++) {
-        [output] = [users[i]];
-        console.log(output);
+    for (i = 0; i < users.length; i++) {
+        users[i] = `${users[i].firstName}` + " " + `${users[i].lastName}` + " is " + `${users[i].age}` + ", " + `${users[i].gender}\n`;
+        output += users[i];
+
     }
     return output;
 }
+
 function findUser(lastName, gender) {
     try {
-        
-        var user = _.find(users, { "lastName": lastName, "gender": gender });
-        var iFindUser = `${user.firstName} ${user.lastName} is ${user.age}, ${user.gender}`;
-
-        console.log(iFindUser);
+        var user = _.find(users, { lastName: lastName, gender: gender });
+        var iFindUser = `${user.firstName}` + " " + `${user.lastName}` + " is " + `${user.age}` + ", " + `${user.gender}`;
         return iFindUser;
     } catch (error) {
-        error.message = "Cannot read property 'firstName' of undefined"
-        console.log(error.message); 
-        return error.message; 
+        return "Cannot read property 'firstName' of undefined";
     }
 }
 
 getUsers();
-findUser("Doe", "male"); 
-findUser("Doe", "female"); 
-findUser("Carrey", "male"); 
-findUser("Winslet", "female"); 
-findUser("Bowie", "male"); 
+console.log(findUser('Doe', 'male'));
 
 module.exports = findUser;

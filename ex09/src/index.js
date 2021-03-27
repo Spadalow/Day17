@@ -1,5 +1,6 @@
 const _ = require('lodash');
-const users = [
+
+var users = [
     {
         id: 1,
         firstName: "John",
@@ -12,7 +13,7 @@ const users = [
         firstName: "Jane",
         lastName: "Doe",
         age: 5,
-        gender: "female"
+        gender: "female" 
     },
     {
         id: 3,
@@ -29,33 +30,27 @@ const users = [
         gender: "female"
     }
 ];
+
 function getUsers() {
     var output = "";
-    for (var i = 0; i < users.length; i++) {
-        [output] = [users[i]];
-        console.log(output);
+    for (i = 0; i < users.length; i++) {
+        users[i] = `${users[i].id}` + " - " + `${users[i].firstName}` + " " + `${users[i].lastName}` + " is " + `${users[i].age}` + ", " + `${users[i].gender}\n`;
+        output += users[i];
     }
     return output;
 }
-function findUserById(id) {
-    try {
-        var user = _.find(users, { "id": id });
-        var iFindUser = `${user.id} - ${user.firstName} ${user.lastName} is ${user.age}, ${user.gender}`;
-
-        console.log(iFindUser);
+ function findUserById(id) {
+     try {
+        var user = _.find(users, { id: id });
+        var iFindUser = `${user.id}` + " - " + `${user.firstName}` + " " + `${user.lastName}` + " is " + `${user.age}` + ", " + `${user.gender}`;
         return iFindUser;
-    } catch (error) {
-        error.message = "Cannot read property 'firstName' of undefined"
-        console.log(error.message); 
-        return error.message; 
-    }
-}
+     } catch (error) {
+         return "Cannot read property 'id'";
+     }
+ }
 
-getUsers();
-findUserById(1);
-findUserById(2); 
-findUserById(3); 
-findUserById(4); 
-findUserById(5); 
+ getUsers();
+ console.log(findUserById(3));
 
-module.exports = findUserById;
+ module.exports = findUserById;
+
